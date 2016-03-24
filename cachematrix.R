@@ -42,6 +42,6 @@ cacheSolve<-function(smatrix1,...){
         }
         data_smatrix1 <- smatrix1$get_smatrix1()
         inverse <- solve(data_smatrix1,...)
-        my_inverse$setinverse(inverse)
+        smatrix1$setinverse(inverse)
         inverse
 }
