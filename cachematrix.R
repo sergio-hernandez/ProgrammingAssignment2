@@ -14,7 +14,7 @@ makeCacheMatrix<-function(smatrix1=matrix()){
                 stop("smatrix1 (first argument) not a squared matrix")
         }
         inverse<-NULL
-        set_values<-function(nmatrix1=smatrix1){
+        set_values<-function(nmatrix1){
                 smatrix1<<-nmatrix1
                 inverse<<-NULL
         }
@@ -35,12 +35,12 @@ makeCacheMatrix<-function(smatrix1=matrix()){
 ## console.
 
 cacheSolve<-function(smatrix1,...){
-        inverse<-my_inverse$getinverse()
+        inverse<-smatrix1$getinverse()
         if(!is.null(inverse)){
                 message("getting cached data")
                 return(inverse)
         }
-        data_smatrix1 <- my_inverse$get_smatrix1()
+        data_smatrix1 <- smatrix1$get_smatrix1()
         inverse <- solve(data_smatrix1,...)
         my_inverse$setinverse(inverse)
         inverse
